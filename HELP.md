@@ -1,12 +1,18 @@
- 
+
+# generer module
+    ng g module shared
+    ng g module frontoffice
+    ng g module backoffice
 
 # Creation des components
 
     ng new edacy-school-app
+
     ng g c shared/components/header
     ng g c shared/components/footer
+    ng g c shared/components/page-not-found
   
-    ng g c frontoffice/components/etudiants
+    ng g c frontoffice/components/students
     ng g c frontoffice/components/classes
     ng g c frontoffice/components/home
 
@@ -17,4 +23,5 @@
  
 # dépendances
 
-  ng add @angular/material
+    ng add @angular/material
+    npm i -s @angular/flex-layout
