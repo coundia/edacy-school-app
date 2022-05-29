@@ -2,18 +2,21 @@ import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from "./frontoffice/components/home/home.component";
 import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
+import {StudentsComponent} from "./frontoffice/components/students/students.component";
+import {ClassesComponent} from "./frontoffice/components/classes/classes.component";
 
 const routes: Routes = [
   {
-    path: 'home', component: HomeComponent
+    path: 'portail/home', component: HomeComponent
   },
-  {
-    path: 'portail',
-    loadChildren: () => import("./frontoffice/frontoffice-routing.module").then(m => m.FrontOfficeRoutingModule),
+  //portail
+   {
+    path: 'portail', loadChildren : () =>import('./frontoffice/frontoffice-routing.module').then(m => m.FrontOfficeRoutingModule),
   },
+  //end portail
   {
     path: '',
-    redirectTo: '/home',
+    redirectTo: 'portail/home',
     pathMatch: 'full'
   }
   ,

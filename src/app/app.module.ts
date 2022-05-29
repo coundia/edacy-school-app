@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {SharedModule} from "./shared/shared.module";
-import {FrontOfficeRoutingModule} from "./frontoffice/frontoffice-routing.module";
+
 
 @NgModule({
   declarations: [
@@ -16,7 +16,7 @@ import {FrontOfficeRoutingModule} from "./frontoffice/frontoffice-routing.module
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    SharedModule
+    SharedModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

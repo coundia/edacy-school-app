@@ -15,6 +15,7 @@
     ng g c frontoffice/components/students
     ng g c frontoffice/components/classes
     ng g c frontoffice/components/home
+    ng g c frontoffice/components/dashboard
 
 # Creation des services
 

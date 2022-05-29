@@ -4,11 +4,10 @@ import {ClassesComponent} from "./components/classes/classes.component";
 import {HomeComponent} from "./components/home/home.component";
 import { StudentsComponent } from './components/students/students.component';
 import {FrontOfficeRoutingModule} from "./frontoffice-routing.module";
-import {MatSidenavModule} from "@angular/material/sidenav";
-import {MatDividerModule} from "@angular/material/divider";
-import {MatIconModule} from "@angular/material/icon";
+import {SharedModule} from "../shared/shared.module";
+import {  MatCardModule} from "@angular/material/card";
 import {MatButtonModule} from "@angular/material/button";
-import {MatToolbarModule} from "@angular/material/toolbar";
+
 
 @NgModule({
   declarations: [
@@ -16,15 +15,13 @@ import {MatToolbarModule} from "@angular/material/toolbar";
     ClassesComponent,
     StudentsComponent
   ],
+
   imports: [
     CommonModule,
     FrontOfficeRoutingModule,
-    MatSidenavModule,
-    MatDividerModule,
-    MatIconModule,
-    MatButtonModule,
-    MatToolbarModule
-
+    SharedModule,
+    MatCardModule,
+    MatButtonModule
   ]
 })
 export class FrontofficeModule { }

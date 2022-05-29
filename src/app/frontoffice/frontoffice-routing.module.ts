@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {StudentsComponent} from "./components/students/students.component";
 import {ClassesComponent} from "./components/classes/classes.component";
-import {HomeComponent} from "./components/home/home.component";
 
 /**
  * Front Routes
