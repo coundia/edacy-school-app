@@ -1,4 +1,69 @@
-/* You can add global styles to this file, and also import other style files */
+/**
+ Global Style
+ */
+html, body {
+  height: 100%;
+}
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/**
+    EDACY PALETTE
+    #69164C,#121016,#EC7C3C,#DBBEC6,#9C6587,#FFFFFF,#2BAC76,#CD2553,#9C6587,#D1D2D3
+ */
+$edacy-pallet-yellow: #fc0;
+$edacy-pallet-marron: #69164C;
+$edacy-pallet-black: #121016;
+$edacy-pallet-orange: #EC7C3C;
+$edacy-pallet-purple: #9C6587;
+$edacy-pallet-white: #FFFFFF;
+$edacy-pallet-green: #2BAC76;
+$edacy-pallet-red: #CD2553;
+$edacy-pallet-gray: #D1D2D3;
+/**
+  borders
+ */
+.border-yellow {
+  border: 1px solid $edacy-pallet-yellow;
+}
+
+.border-red {
+  border: 1px solid $edacy-pallet-red;;
+}
+
+.active {
+  background-color: $edacy-pallet-yellow;
+}
+.my-bloc{
+  display: block;
+}
+.edacy-yellow-color{
+  color:  $edacy-pallet-yellow ;
+}
+
+.edacy-yellow-color{
+  color:  $edacy-pallet-green ;
+}
+.edacy-yellow-color-bg{
+  background-color:  $edacy-pallet-yellow ;
+}
+.edacy-red-color{
+  color:  $edacy-pallet-red ;
+}
+
+
+.radius-bloc {
+  border-collapse: collapse;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.left-bloc{
+  //float:right;
+}
+.fade {
+  //transition: all .8s linear;
+}
+

@@ -3,6 +3,7 @@
     ng g module shared
     ng g module frontoffice
     ng g module backoffice
+    ng g module material
 
 # Creation des components
 

@@ -1,9 +1,8 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 import {HomeComponent} from "./frontoffice/components/home/home.component";
-import { PageNotFoundComponent } from './shared/components/page-not-found/page-not-found.component';
-import {StudentsComponent} from "./frontoffice/components/students/students.component";
-import {ClassesComponent} from "./frontoffice/components/classes/classes.component";
+import {PageNotFoundComponent} from './shared/components/page-not-found/page-not-found.component';
+import {CommonModule} from "@angular/common";
 
 const routes: Routes = [
   {
@@ -25,6 +24,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
+    CommonModule,
     RouterModule.forRoot(routes)
   ],
   exports: [RouterModule]

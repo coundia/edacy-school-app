@@ -1,5 +1,4 @@
-import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
-import {MediaMatcher} from "@angular/cdk/layout";
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-header',
