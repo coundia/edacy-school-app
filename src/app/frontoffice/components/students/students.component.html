@@ -1,1 +1,130 @@
-<h1>eleves</h1>
+<div class="row">
+  <div class="col-md-8">
+    <h1>Liste des classes</h1>
+  </div>
+  <div class="  col-md-4">
+    <button (click)="onAddClicked()" type="button" mat-raised-button data-bs-toggle="modal"
+            data-bs-target="#exampleModal"
+            data-bs-action="@add">
+      <mat-icon class="edacy-yellow-color" aria-hidden="false" aria-label="ajouter une classe">add_home</mat-icon>
+      Ajouter une classe
+    </button>
+  </div>
+</div>
+<div class="row">
+  <table class="table table-striped table-hover radius-bloc border-yellow">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Prenom</th>
+      <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let c of students">
+      <th scope="row">{{c.id}}</th>
+      <td>{{c.firstName}}</td>
+      <td>{{c.lastName}}</td>
+      <td   class="left-bloc">
+
+        <button (click)="onEditClicked(c)" type="button" mat-raised-button data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                data-bs-action="@edit">
+          <mat-icon class="edacy-yellow-color" aria-hidden="false" title="Modifier" aria-label="ajouter une classe">
+            edit
+          </mat-icon>
+        </button>
+        <button (click)="onDeleteClicked(c)" type="button" mat-raised-button data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                data-bs-action="@delete">
+          <mat-icon class="edacy-red-color" aria-hidden="false" title="Supprimer" aria-label="delete">delete</mat-icon>
+        </button>
+        <button (click)="onViewClicked(c)" type="button" mat-raised-button data-bs-toggle="modal"
+                data-bs-target="#exampleModal"
+                data-bs-action="@view">
+          <mat-icon class="edacy-green-color" aria-hidden="false" title="Voir" aria-label="delete">remove_red_eye
+          </mat-icon>
+        </button>
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+</div>
+
+<!--model-->
+
+<div class="modal fade radius-bloc" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{actionTitle}}</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <div class="row " >
+          <form novalidate ngNoForm [formGroup]="formGroup">
+
+
+            <input   type="hidden" formControlName="id" placeholder="id">
+
+
+            <div>
+              <mat-form-field class="my-bloc" appearance="fill">
+                <mat-label>Nom</mat-label>
+                <input  [readonly]="currentAction ==='viewAction'|| currentAction ==='deleteAction' "
+                        matInput type="text" formControlName="firstName" placeholder="Nom">
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field class="my-bloc" appearance="fill">
+                <mat-label>Prénom</mat-label>
+                <textarea [readonly]="currentAction ==='viewAction'|| currentAction ==='deleteAction' "
+                          matInput name="description" formControlName="lastName" placeholder="Description" cols="30"
+                          rows="10"></textarea>
+              </mat-form-field>
+            </div>
+            <div>
+
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+
+        <button *ngIf="currentAction ==='addAction' " [disabled]="!formGroup.valid" mat-raised-button type="button" data-bs-dismiss="modal"
+                (click)="onSave()">
+          <mat-icon class="edacy-yellow-color" aria-hidden="false" title="Enregistrer et Fermer"
+                    aria-label="Enregistrer et Fermer">save
+          </mat-icon>
+          Enregistrer
+        </button>
+
+        <button *ngIf="currentAction ==='deleteAction' " [disabled]="!formGroup.valid" mat-raised-button type="button" data-bs-dismiss="modal"
+                (click)="onDelete()">
+          <mat-icon class="edacy-yellow-color" aria-hidden="false" title="Enregistrer et Fermer"
+                    aria-label="Supprimer la classe">delete
+          </mat-icon>
+          Supprimer
+        </button>
+
+        <button *ngIf="currentAction ==='editAction' " [disabled]="!formGroup.valid" mat-raised-button type="button" data-bs-dismiss="modal"
+                (click)="onEdit()">
+          <mat-icon class="edacy-yellow-color" aria-hidden="false" title="Editer"
+                    aria-label="Editer">edit
+          </mat-icon>
+          Editer
+        </button>
+
+        <button mat-raised-button type="button" data-bs-dismiss="modal">
+          <mat-icon class="edacy-yellow-color" aria-hidden="false" title="Fermer" aria-label="Fermer">close</mat-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!--model end-->
+
+
