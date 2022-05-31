@@ -12,27 +12,26 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 })
 export class ClassesComponent implements OnInit {
   /** Variables */
-  classes$!: Observable<Class[]>;
+  classes!:  Class[];
   formGroup!: FormGroup;
-  actionTitle! : string;
+    actionTitle! : string;
    currentAction!:string;
 
   /** end Variables */
   constructor(private _classService: ClasseService, private _formBuilder: FormBuilder) {
-    //build form end
-    this.classes$ =this._classService.getClasses().pipe(
 
-      tap(v => {
-        console.log(v);
-      })
-    )
-    //end
+    this.classes = this._classService.getClasses();
+
   }
+
+  //get list
 
   ngOnInit(): void {
     //build form
     this.formGroup = this._formBuilder.group(
       {
+        "id": [''],
+        "code": ['', Validators.required],
         "name": ['Terminal A', Validators.required],
         "description": ['Terminal A', Validators.required]
       }
@@ -42,6 +41,7 @@ export class ClassesComponent implements OnInit {
 
   }
   onSave() {
+
     this._classService.addClass(this.formGroup.value);
   }
   onDelete() {
@@ -54,29 +54,33 @@ export class ClassesComponent implements OnInit {
 
   onAddClicked() {
     this.actionTitle="Ajouter une classe";
-    // this.formGroup.reset();
-    this.currentAction="add";
+    const id= this.classes.length ;
+    // this.bindClassValue({id:id+1,code:'',description:"",name:""});
+    this.formGroup.reset();
+    this.currentAction="addAction";
   }
 
   onEditClicked(c: Class) {
     this.actionTitle="Modifier la  classe : "+c.name;
     this.bindClassValue(c);
-    this.currentAction="edit";
+    this.currentAction="editAction";
   }
 
   onDeleteClicked(c: Class) {
     this.actionTitle="Supprimer la  classe : "+c.name;
     this.bindClassValue(c);
-    this.currentAction="delete";
+    this.currentAction="deleteAction";
   }
 
   onViewClicked(c: Class) {
     this.actionTitle="Information la  classe : "+c.name;
     this.bindClassValue(c);
-    this.currentAction="view";
+    this.currentAction="viewAction";
   }
   bindClassValue(c:Class){
     this.formGroup.setValue({
+      id: c.id,
+      code: c.code.toUpperCase(),
       name: c.name,
       description: c.description
     });

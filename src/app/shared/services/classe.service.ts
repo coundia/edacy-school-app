@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {Class} from '../models/class.model';
-import {Observable, of} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -10,43 +9,72 @@ export class ClasseService {
   private classes:Class[]=[
     {
       id:1,
-      name:"Terminal A",
-      description:"Classe terminal A",
+      code:"TS1",
+      name:"Terminal S1",
+      description:"Terminal Scientifique S1 ",
     },
     {
       id:2,
-      name:"Terminal B",
-      description:"Classe terminal B",
+      code:"TS2",
+      name:"Terminal S2 ",
+      description:"Terminal Scientifique S2 ",
     },
     {
       id:3,
-      name:"Premiere A",
-      description:"Classe premiere A ",
+      code:"TL1a",
+      name:"Terminal L1a ",
+      description:"Terminal Litterature L1a ",
+    }
+    ,
+    {
+      id:4,
+      code:"TL1b",
+      name:"Terminal L1b ",
+      description:"Terminal Litterature L1b ",
     }
   ];
   constructor() { }
   /**
-   * get list classes
+   * get list   of classes
    */
-  getClasses():Observable<Class[]> {
-    return of(this.classes);
+  getClasses():Class[]{
+    return  this.classes;
   }
-
 
   /**
-   *
+   * add a class
    * @param aClass a Class
    */
-  addClass(aClass:Class):Observable<Class> {
+  addClass(aClass:Class):Class {
+    //sort
+    const sortedClasses=this.classes.sort((a,b) => a.id - b.id);
+    //increase last ID
+    aClass.id = sortedClasses[sortedClasses.length - 1].id+1;
+    //console.log(aClass);
+    //add the class
     this.classes.push(aClass)
-    return of(aClass);
+    return aClass;
   }
 
-  deleteClass(value: any) {
-    
+  /**
+   * delete a class
+   * @param aClass
+   */
+  deleteClass(aClass: Class) {
+    const toDelete = this.classes.findIndex((c) => c.id === aClass.id);
+    //console.log(toDelete);
+    this.classes.splice(toDelete, 1);
   }
 
-  editClass(value: any) {
-    
+  /**
+   * edit a class
+   *
+   * @param aClass
+   */
+  editClass(aClass: Class) {
+
+    //console.log(aClass);
+    this.classes[aClass.id-1]=aClass;
+    //console.log(  this.classes);
   }
 }

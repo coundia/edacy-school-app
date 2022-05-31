@@ -16,14 +16,16 @@
     <thead>
     <tr>
       <th scope="col">#</th>
+      <th scope="col">Code</th>
       <th scope="col">Nom</th>
       <th scope="col">Desscription</th>
       <th scope="col">Actions</th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let c of classes$ | async">
+    <tr *ngFor="let c of classes">
       <th scope="row">{{c.id}}</th>
+      <td>{{c.code}}</td>
       <td>{{c.name}}</td>
       <td>{{c.description}}</td>
       <td   class="left-bloc">
@@ -64,18 +66,32 @@
       </div>
       <div class="modal-body">
 
-        <div class="row">
+        <div class="row " >
           <form novalidate ngNoForm [formGroup]="formGroup">
+
+
+                <input   type="hidden" formControlName="id" placeholder="id">
+
+            <div>
+              <mat-form-field class="my-bloc" appearance="fill">
+                <mat-label>Code</mat-label>
+                <input  [readonly]="currentAction ==='viewAction'|| currentAction ==='deleteAction' "
+                        matInput type="text" formControlName="code" placeholder="Code">
+              </mat-form-field>
+            </div>
+
             <div>
               <mat-form-field class="my-bloc" appearance="fill">
                 <mat-label>Nom</mat-label>
-                <input matInput type="text" formControlName="name" placeholder="Nom">
+                <input  [readonly]="currentAction ==='viewAction'|| currentAction ==='deleteAction' "
+                matInput type="text" formControlName="name" placeholder="Nom">
               </mat-form-field>
             </div>
             <div>
               <mat-form-field class="my-bloc" appearance="fill">
                 <mat-label>Description</mat-label>
-                <textarea matInput name="description" formControlName="description" placeholder="Description" cols="30"
+                <textarea [readonly]="currentAction ==='viewAction'|| currentAction ==='deleteAction' "
+                          matInput name="description" formControlName="description" placeholder="Description" cols="30"
                           rows="10"></textarea>
               </mat-form-field>
             </div>
@@ -87,7 +103,7 @@
       </div>
       <div class="modal-footer">
 
-            <button *ngIf="currentAction ==='add' " [disabled]="!formGroup.valid" mat-raised-button type="button" data-bs-dismiss="modal"
+            <button *ngIf="currentAction ==='addAction' " [disabled]="!formGroup.valid" mat-raised-button type="button" data-bs-dismiss="modal"
                     (click)="onSave()">
                 <mat-icon class="edacy-yellow-color" aria-hidden="false" title="Enregistrer et Fermer"
                           aria-label="Enregistrer et Fermer">save
@@ -95,7 +111,7 @@
                 Enregistrer
             </button>
 
-            <button *ngIf="currentAction ==='delete' " [disabled]="!formGroup.valid" mat-raised-button type="button" data-bs-dismiss="modal"
+            <button *ngIf="currentAction ==='deleteAction' " [disabled]="!formGroup.valid" mat-raised-button type="button" data-bs-dismiss="modal"
                     (click)="onDelete()">
               <mat-icon class="edacy-yellow-color" aria-hidden="false" title="Enregistrer et Fermer"
                         aria-label="Supprimer la classe">delete
@@ -103,7 +119,7 @@
               Supprimer
             </button>
 
-            <button *ngIf="currentAction ==='edit' " [disabled]="!formGroup.valid" mat-raised-button type="button" data-bs-dismiss="modal"
+            <button *ngIf="currentAction ==='editAction' " [disabled]="!formGroup.valid" mat-raised-button type="button" data-bs-dismiss="modal"
                     (click)="onEdit()">
               <mat-icon class="edacy-yellow-color" aria-hidden="false" title="Editer"
                         aria-label="Editer">edit
