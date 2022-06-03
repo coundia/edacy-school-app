@@ -16,6 +16,21 @@ export class StudentService {
       id:2,
       firstName:"Yama",
       lastName:"Seck"
+    },
+    {
+      id:3,
+      firstName:"Fatou",
+      lastName:"Diop"
+    },
+    {
+      id:4,
+      firstName:"Abdou",
+      lastName:"Diouf"
+    },
+    {
+      id:5,
+      firstName:"Macky",
+      lastName:"Wade"
     }
   ];
   constructor() { }

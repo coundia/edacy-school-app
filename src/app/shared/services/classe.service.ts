@@ -28,9 +28,23 @@ export class ClasseService {
     ,
     {
       id:4,
+      code:"PL",
+      name:"Premiere L ",
+      description:"Premiere Litterature L ",
+    }
+    ,
+    {
+      id:5,
       code:"TL1b",
       name:"Terminal L1b ",
       description:"Terminal Litterature L1b ",
+    }
+    ,
+    {
+      id:6,
+      code:"TL1c",
+      name:"Terminal L1c",
+      description:"Terminal Litterature L1c",
     }
   ];
   constructor() { }

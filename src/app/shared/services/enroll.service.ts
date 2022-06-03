@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {Enroll} from '../models/enroll.model';
-import {Class} from "../models/class.model";
 
 @Injectable({
   providedIn: 'root'
@@ -8,6 +7,18 @@ import {Class} from "../models/class.model";
 export class EnrollService {
 
   private enrolls:Enroll[]=[
+    {
+      id:1,
+      student_id : 1,
+      class_id : 1,
+      enrollDate :new Date()
+    },
+    {
+      id:2,
+      student_id : 2,
+      class_id : 2,
+      enrollDate :new Date()
+    }
   ];
   constructor() { }
   /**
@@ -53,7 +64,23 @@ export class EnrollService {
     this.enrolls.splice(index, 1);
   }
 
+  /**
+   * get five enrollment
+   */
+  getFiveEnrolls():Enroll[]{
 
+   var temp :Enroll[]=[];
+   if(this.enrolls.length>5){
+     const sortedEnrolls=this.enrolls.sort((a,b) => a.id - b.id);
+     for (let i = 0; i < 5; i++) {
+       temp[i] = sortedEnrolls[this.enrolls.length-1-i];
+     }
+     return temp;
+   }else{
+     return this.enrolls;
+   }
+
+  }
 
 
 }

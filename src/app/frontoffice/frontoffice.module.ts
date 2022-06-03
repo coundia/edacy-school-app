@@ -14,6 +14,7 @@ import { EnrollComponent } from './components/enroll/enroll.component';
 import {MatOptionModule} from "@angular/material/core";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
     FrontOfficeRoutingModule,
     SharedModule,
     MaterialModule,
+    MatCardModule,
     FlexModule,
     ReactiveFormsModule,
     MatTableModule,
