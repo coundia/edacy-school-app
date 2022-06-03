@@ -3,6 +3,7 @@ import {RouterModule, Routes} from '@angular/router';
 import {StudentsComponent} from "./components/students/students.component";
 import {ClassesComponent} from "./components/classes/classes.component";
 import {CommonModule} from "@angular/common";
+import {EnrollComponent} from "./components/enroll/enroll.component";
 
 /**
  * Front Routes
@@ -14,6 +15,8 @@ const routes: Routes = [
 
   {path: 'classes', component: ClassesComponent},
   {path: 'classes/:id', component: ClassesComponent},
+
+  {path: 'enrollment', component: EnrollComponent},
 ];
 
 @NgModule({

@@ -7,7 +7,7 @@
             data-bs-target="#exampleModal"
             data-bs-action="@add">
       <mat-icon class="edacy-yellow-color" aria-hidden="false" aria-label="ajouter une classe">add_home</mat-icon>
-      Ajouter une classe
+      Ajouter un étudiant
     </button>
   </div>
 </div>
@@ -81,10 +81,10 @@
             <div>
               <mat-form-field class="my-bloc" appearance="fill">
                 <mat-label>Prénom</mat-label>
-                <textarea [readonly]="currentAction ==='viewAction'|| currentAction ==='deleteAction' "
-                          matInput name="description" formControlName="lastName" placeholder="Description" cols="30"
-                          rows="10"></textarea>
+                <input  [readonly]="currentAction ==='viewAction'|| currentAction ==='deleteAction' "
+                        matInput type="text" formControlName="lastName" placeholder="Prénom">
               </mat-form-field>
+
             </div>
             <div>
 

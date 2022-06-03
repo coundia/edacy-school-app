@@ -77,4 +77,13 @@ export class ClasseService {
     this.classes[aClass.id-1]=aClass;
     //console.log(  this.classes);
   }
+
+  /**
+   *
+   * @param id
+   */
+  getClassByid(id: number) {
+    const index = this.classes.findIndex((c) => c.id === id);
+    return this.classes[index];
+  }
 }

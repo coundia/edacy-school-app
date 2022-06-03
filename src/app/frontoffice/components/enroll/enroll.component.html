@@ -1,0 +1,88 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-4 ">
+    <h1>Liste des inscriptions</h1>
+  </div>
+
+</div>
+<!--form inscription-->
+
+  <form class="example-form" [formGroup]="formGroup">
+    <div class=" d-flex flex-row flex-stretch justify-content-center align-content-around align-items-stretch align-content-between flex-wrap ">
+    <div class=" d-flex align-items-stretch mx-3">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Etudiant </mat-label>
+        <input matInput
+               aria-label="Student"
+               [matAutocomplete]="auto"
+               formControlName="student_id">
+        <mat-autocomplete #auto="matAutocomplete">
+          <mat-option *ngFor="let c of filteredStudents | async" [value]="c.id">
+            <span>{{c.firstName}}</span> &nbsp; <span>{{c.lastName}}</span>
+          </mat-option>
+        </mat-autocomplete>
+      </mat-form-field>
+    </div>
+
+    <div   >
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Classe </mat-label>
+      <input matInput
+             aria-label="Class"
+             [matAutocomplete]="auto2"
+             formControlName="class_id">
+      <mat-autocomplete #auto2="matAutocomplete">
+        <mat-option *ngFor="let c of filteredClasses | async" [value]="c.id">
+          <span>{{c.name}}</span>
+        </mat-option>
+      </mat-autocomplete>
+
+    </mat-form-field>
+
+    </div>
+    <div class="mx-3 mt-2 justify-content-center "  >
+
+      <button  [disabled]="!formGroup.valid"  (click)="inscrire()" type="button" mat-raised-button   >
+        <mat-icon class="edacy-yellow-color"  title="inscrire" aria-label="inscrire">
+          add
+        </mat-icon>Inscrire
+      </button>
+
+    </div>
+
+
+    </div>
+  </form>
+
+
+<!--table-->
+<div class="row">
+  <table class="table table-striped table-hover radius-bloc border-yellow">
+    <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Etudiant</th>
+      <th scope="col">Classe</th>
+      <th scope="col">Date d'inscription</th>
+      <th scope="col">Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let c of enrolls">
+      <th  >{{c?.id}}</th>
+      <td>{{getStudentByid(c.student_id)?.firstName +" "+getStudentByid(c.student_id)?.lastName }}</td>
+      <td>{{getClassByid(c.class_id)?.name }}</td>
+      <td>{{c.enrollDate | date:'d-m-yyy  HH:mm:ss'  }}</td>
+      <td class="left-bloc">
+        <button (click)="onCancelClick(c)" type="button" mat-raised-button>
+          <mat-icon class="edacy-red-color" title="Annuler" >delete</mat-icon>Annuler
+        </button>
+      </td>
+    </tr>
+
+    </tbody>
+  </table>
+
+</div>
+
+
+

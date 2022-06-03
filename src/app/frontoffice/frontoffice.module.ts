@@ -10,13 +10,17 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MaterialModule} from "../material/material.module";
 import {MatTableModule} from "@angular/material/table";
 import {MatIconModule} from "@angular/material/icon";
+import { EnrollComponent } from './components/enroll/enroll.component';
+import {MatOptionModule} from "@angular/material/core";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
 
 
 @NgModule({
   declarations: [
     HomeComponent,
     ClassesComponent,
-    StudentsComponent
+    StudentsComponent,
+    EnrollComponent
   ],
 
   imports: [
@@ -28,6 +32,8 @@ import {MatIconModule} from "@angular/material/icon";
     ReactiveFormsModule,
     MatTableModule,
     MatIconModule,
+    MatOptionModule,
+    MatAutocompleteModule,
 
   ]
 })

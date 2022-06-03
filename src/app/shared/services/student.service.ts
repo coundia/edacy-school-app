@@ -62,4 +62,13 @@ export class StudentService {
     this.students[aStudent.id-1]=aStudent;
     //console.log(  this.students);
   }
+
+  /**
+   *
+   * @param student_id
+   */
+  getStudentByid(student_id: number) {
+    const index = this.students.findIndex((c) => c.id === student_id);
+    return this.students[index];
+  }
 }

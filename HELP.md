@@ -15,6 +15,8 @@
   
     ng g c frontoffice/components/students
     ng g c frontoffice/components/classes
+    ng g c frontoffice/components/enroll
+
     ng g c frontoffice/components/home
     ng g c frontoffice/components/dashboard
 
@@ -22,6 +24,7 @@
 
     ng generate service shared/services/etudiant
     ng generate service shared/services/classe 
+    ng generate service shared/services/enroll  
  
 # dépendances
 
