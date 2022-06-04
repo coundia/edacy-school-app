@@ -9,8 +9,9 @@ const routes: Routes = [
     path: 'portail/home', component: HomeComponent
   },
   //portail
-   {
-    path: 'portail', loadChildren : () =>import('./frontoffice/frontoffice-routing.module').then(m => m.FrontOfficeRoutingModule),
+  {
+    path: 'portail',
+    loadChildren: () => import('./frontoffice/frontoffice-routing.module').then(m => m.FrontOfficeRoutingModule),
   },
   //end portail
   {

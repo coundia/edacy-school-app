@@ -1,8 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Class} from 'src/app/shared/models/class.model';
 import {ClasseService} from "../../../shared/services/classe.service";
-import {Observable, of} from "rxjs";
-import {delay, tap} from "rxjs/operators";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 
 @Component({
@@ -12,10 +10,10 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 })
 export class ClassesComponent implements OnInit {
   /** Variables */
-  classes!:  Class[];
+  classes!: Class[];
   formGroup!: FormGroup;
-    actionTitle! : string;
-   currentAction!:string;
+  actionTitle!: string;
+  currentAction!: string;
 
   /** end Variables */
   constructor(private _classService: ClasseService, private _formBuilder: FormBuilder) {
@@ -40,44 +38,48 @@ export class ClassesComponent implements OnInit {
 
 
   }
+
   onSave() {
 
     this._classService.addClass(this.formGroup.value);
   }
+
   onDelete() {
     this._classService.deleteClass(this.formGroup.value);
   }
+
   onEdit() {
     this._classService.editClass(this.formGroup.value);
   }
 
 
   onAddClicked() {
-    this.actionTitle="Ajouter une classe";
-    const id= this.classes.length ;
+    this.actionTitle = "Ajouter une classe";
+    const id = this.classes.length;
     // this.bindClassValue({id:id+1,code:'',description:"",name:""});
     this.formGroup.reset();
-    this.currentAction="addAction";
+    this.currentAction = "addAction";
   }
 
   onEditClicked(c: Class) {
-    this.actionTitle="Modifier la  classe : "+c.name;
+    this.actionTitle = "Modifier la  classe : " + c.name;
     this.bindClassValue(c);
-    this.currentAction="editAction";
+    this.currentAction = "editAction";
   }
 
   onDeleteClicked(c: Class) {
-    this.actionTitle="Supprimer la  classe : "+c.name;
+    this.actionTitle = "Supprimer la  classe : " + c.name;
     this.bindClassValue(c);
-    this.currentAction="deleteAction";
+    this.currentAction = "deleteAction";
   }
 
   onViewClicked(c: Class) {
-    this.actionTitle="Information la  classe : "+c.name;
+    this.actionTitle = "Information la  classe : " + c.name;
     this.bindClassValue(c);
-    this.currentAction="viewAction";
+    this.currentAction = "viewAction";
   }
-  bindClassValue(c:Class){
+
+  bindClassValue(c: Class) {
     this.formGroup.setValue({
       id: c.id,
       code: c.code.toUpperCase(),

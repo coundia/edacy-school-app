@@ -3,10 +3,10 @@
     <h1>Liste des classes</h1>
   </div>
   <div class="  col-md-4">
-    <button (click)="onAddClicked()" type="button" mat-raised-button data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
-            data-bs-action="@add">
-      <mat-icon class="edacy-yellow-color" aria-hidden="false" aria-label="ajouter une classe">add_home</mat-icon>
+    <button (click)="onAddClicked()" data-bs-action="@add" data-bs-target="#exampleModal" data-bs-toggle="modal"
+            mat-raised-button
+            type="button">
+      <mat-icon aria-hidden="false" aria-label="ajouter une classe" class="edacy-yellow-color">add_home</mat-icon>
       Ajouter une classe
     </button>
   </div>
@@ -28,24 +28,24 @@
       <td>{{c.code}}</td>
       <td>{{c.name}}</td>
       <td>{{c.description}}</td>
-      <td   class="left-bloc">
+      <td class="left-bloc">
 
-        <button (click)="onEditClicked(c)" type="button" mat-raised-button data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
-                data-bs-action="@edit">
-          <mat-icon class="edacy-yellow-color" aria-hidden="false" title="Modifier" aria-label="ajouter une classe">
+        <button (click)="onEditClicked(c)" data-bs-action="@edit" data-bs-target="#exampleModal" data-bs-toggle="modal"
+                mat-raised-button
+                type="button">
+          <mat-icon aria-hidden="false" aria-label="ajouter une classe" class="edacy-yellow-color" title="Modifier">
             edit
           </mat-icon>
         </button>
-        <button (click)="onDeleteClicked(c)" type="button" mat-raised-button data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
-                data-bs-action="@delete">
-          <mat-icon class="edacy-red-color" aria-hidden="false" title="Supprimer" aria-label="delete">delete</mat-icon>
+        <button (click)="onDeleteClicked(c)" data-bs-action="@delete" data-bs-target="#exampleModal" data-bs-toggle="modal"
+                mat-raised-button
+                type="button">
+          <mat-icon aria-hidden="false" aria-label="delete" class="edacy-red-color" title="Supprimer">delete</mat-icon>
         </button>
-        <button (click)="onViewClicked(c)" type="button" mat-raised-button data-bs-toggle="modal"
-                data-bs-target="#exampleModal"
-                data-bs-action="@view">
-          <mat-icon class="edacy-green-color" aria-hidden="false" title="Voir" aria-label="delete">remove_red_eye
+        <button (click)="onViewClicked(c)" data-bs-action="@view" data-bs-target="#exampleModal" data-bs-toggle="modal"
+                mat-raised-button
+                type="button">
+          <mat-icon aria-hidden="false" aria-label="delete" class="edacy-green-color" title="Voir">remove_red_eye
           </mat-icon>
         </button>
       </td>
@@ -57,41 +57,42 @@
 
 <!--model-->
 
-<div class="modal fade radius-bloc" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade radius-bloc" id="exampleModal"
+     tabindex="-1">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">{{actionTitle}}</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
       </div>
       <div class="modal-body">
 
-        <div class="row " >
-          <form novalidate ngNoForm [formGroup]="formGroup">
+        <div class="row ">
+          <form [formGroup]="formGroup" ngNoForm novalidate>
 
 
-                <input   type="hidden" formControlName="id" placeholder="id">
+            <input formControlName="id" placeholder="id" type="hidden">
 
             <div>
-              <mat-form-field class="my-bloc" appearance="fill">
+              <mat-form-field appearance="fill" class="my-bloc">
                 <mat-label>Code</mat-label>
-                <input  [readonly]="currentAction ==='viewAction'|| currentAction ==='deleteAction' "
-                        matInput type="text" formControlName="code" placeholder="Code">
+                <input [readonly]="currentAction ==='viewAction'|| currentAction ==='deleteAction' "
+                       formControlName="code" matInput placeholder="Code" type="text">
               </mat-form-field>
             </div>
 
             <div>
-              <mat-form-field class="my-bloc" appearance="fill">
+              <mat-form-field appearance="fill" class="my-bloc">
                 <mat-label>Nom</mat-label>
-                <input  [readonly]="currentAction ==='viewAction'|| currentAction ==='deleteAction' "
-                matInput type="text" formControlName="name" placeholder="Nom">
+                <input [readonly]="currentAction ==='viewAction'|| currentAction ==='deleteAction' "
+                       formControlName="name" matInput placeholder="Nom" type="text">
               </mat-form-field>
             </div>
             <div>
-              <mat-form-field class="my-bloc" appearance="fill">
+              <mat-form-field appearance="fill" class="my-bloc">
                 <mat-label>Description</mat-label>
                 <textarea [readonly]="currentAction ==='viewAction'|| currentAction ==='deleteAction' "
-                          matInput name="description" formControlName="description" placeholder="Description" cols="30"
+                          cols="30" formControlName="description" matInput name="description" placeholder="Description"
                           rows="10"></textarea>
               </mat-form-field>
             </div>
@@ -103,33 +104,36 @@
       </div>
       <div class="modal-footer">
 
-            <button *ngIf="currentAction ==='addAction' " [disabled]="!formGroup.valid" mat-raised-button type="button" data-bs-dismiss="modal"
-                    (click)="onSave()">
-                <mat-icon class="edacy-yellow-color" aria-hidden="false" title="Enregistrer et Fermer"
-                          aria-label="Enregistrer et Fermer">save
-                </mat-icon>
-                Enregistrer
-            </button>
+        <button (click)="onSave()" *ngIf="currentAction ==='addAction' " [disabled]="!formGroup.valid" data-bs-dismiss="modal"
+                mat-raised-button
+                type="button">
+          <mat-icon aria-hidden="false" aria-label="Enregistrer et Fermer" class="edacy-yellow-color"
+                    title="Enregistrer et Fermer">save
+          </mat-icon>
+          Enregistrer
+        </button>
 
-            <button *ngIf="currentAction ==='deleteAction' " [disabled]="!formGroup.valid" mat-raised-button type="button" data-bs-dismiss="modal"
-                    (click)="onDelete()">
-              <mat-icon class="edacy-yellow-color" aria-hidden="false" title="Enregistrer et Fermer"
-                        aria-label="Supprimer la classe">delete
-              </mat-icon>
-              Supprimer
-            </button>
+        <button (click)="onDelete()" *ngIf="currentAction ==='deleteAction' " [disabled]="!formGroup.valid" data-bs-dismiss="modal"
+                mat-raised-button
+                type="button">
+          <mat-icon aria-hidden="false" aria-label="Supprimer la classe" class="edacy-yellow-color"
+                    title="Enregistrer et Fermer">delete
+          </mat-icon>
+          Supprimer
+        </button>
 
-            <button *ngIf="currentAction ==='editAction' " [disabled]="!formGroup.valid" mat-raised-button type="button" data-bs-dismiss="modal"
-                    (click)="onEdit()">
-              <mat-icon class="edacy-yellow-color" aria-hidden="false" title="Editer"
-                        aria-label="Editer">edit
-              </mat-icon>
-              Editer
-            </button>
+        <button (click)="onEdit()" *ngIf="currentAction ==='editAction' " [disabled]="!formGroup.valid" data-bs-dismiss="modal"
+                mat-raised-button
+                type="button">
+          <mat-icon aria-hidden="false" aria-label="Editer" class="edacy-yellow-color"
+                    title="Editer">edit
+          </mat-icon>
+          Editer
+        </button>
 
-            <button mat-raised-button type="button" data-bs-dismiss="modal">
-              <mat-icon class="edacy-yellow-color" aria-hidden="false" title="Fermer" aria-label="Fermer">close</mat-icon>
-            </button>
+        <button data-bs-dismiss="modal" mat-raised-button type="button">
+          <mat-icon aria-hidden="false" aria-label="Fermer" class="edacy-yellow-color" title="Fermer">close</mat-icon>
+        </button>
       </div>
     </div>
   </div>

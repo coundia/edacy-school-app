@@ -6,64 +6,67 @@ import {Class} from '../models/class.model';
 })
 export class ClasseService {
 
-  private classes:Class[]=[
+  private classes: Class[] = [
     {
-      id:1,
-      code:"TS1",
-      name:"Terminal S1",
-      description:"Terminal Scientifique S1 ",
+      id: 1,
+      code: "TS1",
+      name: "Terminal S1",
+      description: "Terminal Scientifique S1 ",
     },
     {
-      id:2,
-      code:"TS2",
-      name:"Terminal S2 ",
-      description:"Terminal Scientifique S2 ",
+      id: 2,
+      code: "TS2",
+      name: "Terminal S2 ",
+      description: "Terminal Scientifique S2 ",
     },
     {
-      id:3,
-      code:"TL1a",
-      name:"Terminal L1a ",
-      description:"Terminal Litterature L1a ",
+      id: 3,
+      code: "TL1a",
+      name: "Terminal L1a ",
+      description: "Terminal Litterature L1a ",
     }
     ,
     {
-      id:4,
-      code:"PL",
-      name:"Premiere L ",
-      description:"Premiere Litterature L ",
+      id: 4,
+      code: "PL",
+      name: "Premiere L ",
+      description: "Premiere Litterature L ",
     }
     ,
     {
-      id:5,
-      code:"TL1b",
-      name:"Terminal L1b ",
-      description:"Terminal Litterature L1b ",
+      id: 5,
+      code: "TL1b",
+      name: "Terminal L1b ",
+      description: "Terminal Litterature L1b ",
     }
     ,
     {
-      id:6,
-      code:"TL1c",
-      name:"Terminal L1c",
-      description:"Terminal Litterature L1c",
+      id: 6,
+      code: "TL1c",
+      name: "Terminal L1c",
+      description: "Terminal Litterature L1c",
     }
   ];
-  constructor() { }
+
+  constructor() {
+  }
+
   /**
    * get list   of classes
    */
-  getClasses():Class[]{
-    return  this.classes;
+  getClasses(): Class[] {
+    return this.classes;
   }
 
   /**
    * add a class
    * @param aClass a Class
    */
-  addClass(aClass:Class):Class {
+  addClass(aClass: Class): Class {
     //sort
-    const sortedClasses=this.classes.sort((a,b) => a.id - b.id);
+    const sortedClasses = this.classes.sort((a, b) => a.id - b.id);
     //increase last ID
-    aClass.id = sortedClasses[sortedClasses.length - 1].id+1;
+    aClass.id = sortedClasses[sortedClasses.length - 1].id + 1;
     //console.log(aClass);
     //add the class
     this.classes.push(aClass)
@@ -88,7 +91,7 @@ export class ClasseService {
   editClass(aClass: Class) {
 
     //console.log(aClass);
-    this.classes[aClass.id-1]=aClass;
+    this.classes[aClass.id - 1] = aClass;
     //console.log(  this.classes);
   }
 

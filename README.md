@@ -1,10 +1,13 @@
 # Edacy School App
+
 System de gestion d'une école.
 
-## Lancer le projet 
+## Lancer le projet
+
     ng serve 
 
 # Structure du code
+
     .
     ├── src                         # Dossiers des sources Service ,Entity et Extensions Twig
     │   ├── app                     # Dossiers contenants les modules 

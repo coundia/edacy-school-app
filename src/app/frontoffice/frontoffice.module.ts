@@ -10,7 +10,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {MaterialModule} from "../material/material.module";
 import {MatTableModule} from "@angular/material/table";
 import {MatIconModule} from "@angular/material/icon";
-import { EnrollComponent } from './components/enroll/enroll.component';
+import {EnrollComponent} from './components/enroll/enroll.component';
 import {MatOptionModule} from "@angular/material/core";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
 
@@ -39,4 +39,5 @@ import {MatCardModule} from '@angular/material/card';
 
   ]
 })
-export class FrontofficeModule { }
+export class FrontofficeModule {
+}

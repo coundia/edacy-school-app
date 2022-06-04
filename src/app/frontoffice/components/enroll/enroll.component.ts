@@ -20,37 +20,18 @@ export class EnrollComponent implements OnInit {
   formGroup!: FormGroup;
   classes!: Class[];
   students!: Student[];
+  // studentCtrl = new FormControl();
+  filteredClasses!: Observable<Class[]> | undefined;
+
+  //autocomplet 2
+  // classCtrl = new FormControl();
+  filteredStudents!: Observable<Student[]> | undefined;
 
   /** end Variables */
   constructor(private _enrollService: EnrollService, private _classService: ClasseService,
               private _studentService: StudentService, private _formBuilder: FormBuilder) {
 
 
-  }
-
-  //autocomplet 2
-  // classCtrl = new FormControl();
-  // studentCtrl = new FormControl();
-  filteredClasses!: Observable<Class[]> | undefined;
-  filteredStudents!: Observable<Student[]> | undefined;
-
-  //classes filter
-  /**
-   *
-   * @param value
-   * @private
-   */
-  private _filterClasses(value: string): Class[] {
-    return this.classes.filter(c => c.name.includes(value));
-  }
-
-  /**
-   *
-   * @param value
-   * @private
-   */
-  private _filterStudents(value: string): Student[] {
-    return this.students.filter(s => s.firstName.includes(value));
   }
 
   //autocomplet end 2
@@ -82,21 +63,42 @@ export class EnrollComponent implements OnInit {
   }
 
   inscrire() {
-      this._enrollService.addEnroll(this.formGroup.value);
-      this.formGroup.reset();
+    this._enrollService.addEnroll(this.formGroup.value);
+    this.formGroup.reset();
   }
+
   onCancelClick(c: Enroll) {
-    if(confirm("Voulez vraiment annuler cette inscription ? ")){
+    if (confirm("Voulez vraiment annuler cette inscription ? ")) {
       this._enrollService.deleteEnroll(c);
     }
 
   }
-  getClassByid(id:number):Class{
+
+  getClassByid(id: number): Class {
     return this._classService.getClassByid(id);
   }
 
-  getStudentByid(student_id: number):Student {
+  getStudentByid(student_id: number): Student {
     return this._studentService.getStudentByid(student_id);
+  }
+
+  //classes filter
+  /**
+   *
+   * @param value
+   * @private
+   */
+  private _filterClasses(value: string): Class[] {
+    return this.classes.filter(c => c.name.includes(value));
+  }
+
+  /**
+   *
+   * @param value
+   * @private
+   */
+  private _filterStudents(value: string): Student[] {
+    return this.students.filter(s => s.firstName.includes(value));
   }
 }//end enroll
 

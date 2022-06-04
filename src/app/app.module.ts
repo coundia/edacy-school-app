@@ -23,4 +23,5 @@ import {FrontofficeModule} from "./frontoffice/frontoffice.module";
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

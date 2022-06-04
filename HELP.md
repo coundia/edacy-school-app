@@ -1,5 +1,5 @@
-
 # generer module
+
     ng g module shared
     ng g module frontoffice
     ng g module backoffice
@@ -25,7 +25,7 @@
     ng generate service shared/services/etudiant
     ng generate service shared/services/classe 
     ng generate service shared/services/enroll  
- 
+
 # dépendances
 
     ng add @angular/material

@@ -37,21 +37,25 @@ $edacy-pallet-gray: #D1D2D3;
 .active {
   background-color: $edacy-pallet-yellow;
 }
-.my-bloc{
+
+.my-bloc {
   display: block;
 }
-.edacy-yellow-color{
-  color:  $edacy-pallet-yellow ;
+
+.edacy-yellow-color {
+  color: $edacy-pallet-yellow;
 }
 
-.edacy-yellow-color{
-  color:  $edacy-pallet-green ;
+.edacy-yellow-color {
+  color: $edacy-pallet-green;
 }
-.edacy-yellow-color-bg{
-  background-color:  $edacy-pallet-yellow ;
+
+.edacy-yellow-color-bg {
+  background-color: $edacy-pallet-yellow;
 }
-.edacy-red-color{
-  color:  $edacy-pallet-red ;
+
+.edacy-red-color {
+  color: $edacy-pallet-red;
 }
 
 
@@ -60,9 +64,11 @@ $edacy-pallet-gray: #D1D2D3;
   border-radius: 20px;
   overflow: hidden;
 }
-.left-bloc{
+
+.left-bloc {
   //float:right;
 }
+
 .fade {
   //transition: all .8s linear;
 }
