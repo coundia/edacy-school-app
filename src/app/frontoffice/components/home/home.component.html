@@ -8,33 +8,40 @@
 <!--div nbclass-->
 <div class="d-flex flex-row flex-stretch justify-content-center mt-3 mb-3">
   <mat-card class="example-card mx-3">
-    <mat-card-title>  <button   mat-button  routerLink="/portail/students">Eleves</button>  </mat-card-title>
-    <img mat-card-image src="https://cdn.pixabay.com/photo/2016/03/31/18/04/asian-1294104_960_720.png" alt="Eleves">
+    <mat-card-title>
+      <button mat-button routerLink="/portail/students">Eleves</button>
+    </mat-card-title>
+
     <mat-card-content>
+      <mat-icon class="big" style="font-size: 100px">people_alt</mat-icon>
       <h1 class="text-center">{{students.length}}</h1>
     </mat-card-content>
 
   </mat-card>
-  <mat-card class="example-card mx-3" >
-    <mat-card-title>  <button   mat-button  routerLink="/portail/classes">Classes</button>  </mat-card-title>
-    <img mat-card-image src="https://cdn.pixabay.com/photo/2016/07/27/15/43/education-1545578_960_720.png" alt="Classes">
+  <mat-card class="example-card mx-3">
+    <mat-card-title>
+      <button mat-button routerLink="/portail/classes">Classes</button>
+    </mat-card-title>
+
     <mat-card-content>
+      <mat-icon class="big" style="font-size: 100px">school</mat-icon>
       <h1 class="text-center">{{classes.length}}</h1>
     </mat-card-content>
-
   </mat-card>
   <mat-card class="example-card mx-3">
-    <mat-card-title>  <button   mat-button  routerLink="/portail/enrollment">Inscrits</button>  </mat-card-title>
-    <img mat-card-image src="https://cdn.pixabay.com/photo/2013/07/13/12/43/kids-160168_960_720.png" alt="Inscrits">
+    <mat-card-title>
+      <button mat-button routerLink="/portail/enrollment">Inscrits</button>
+    </mat-card-title>
+
     <mat-card-content>
+      <mat-icon class="big" style="font-size: 100px">person_add</mat-icon>
       <h1 class="text-center">{{enrolls.length}}</h1>
     </mat-card-content>
-
   </mat-card>
 </div>
 <!--div nbclass-->
 <div class="d-flex flex-row flex-stretch justify-content-center">
-  <h1> Cinq derniers étudiants inscrits   </h1>
+  <h1> Cinq derniers étudiants inscrits </h1>
 </div>
 <!--table-->
 <div class="row">
@@ -50,13 +57,11 @@
     </thead>
     <tbody>
     <tr *ngFor="let c of enrolls">
-      <th  >{{c?.id}}</th>
-      <td>{{getStudentByid(c.student_id)?.firstName +" "+getStudentByid(c.student_id)?.lastName }}</td>
+      <th>{{c?.id}}</th>
+      <td>{{getStudentByid(c.student_id)?.firstName + " " + getStudentByid(c.student_id)?.lastName }}</td>
       <td>{{getClassByid(c.class_id)?.name }}</td>
-      <td>{{c.enrollDate | date:'d-m-yyy  HH:mm:ss'  }}</td>
-
+      <td>{{c.enrollDate | date : 'short'  }}</td>
     </tr>
-
     </tbody>
   </table>
 

@@ -71,7 +71,7 @@
       <th  >{{c?.id}}</th>
       <td>{{getStudentByid(c.student_id)?.firstName +" "+getStudentByid(c.student_id)?.lastName }}</td>
       <td>{{getClassByid(c.class_id)?.name }}</td>
-      <td>{{c.enrollDate | date:'d-m-yyy  HH:mm:ss'  }}</td>
+      <td>{{c.enrollDate | date:'short'   }}</td>
       <td class="left-bloc">
         <button (click)="onCancelClick(c)" type="button" mat-raised-button>
           <mat-icon class="edacy-red-color" title="Annuler" >delete</mat-icon>Annuler
