@@ -23,3 +23,4 @@ System de gestion d'une école.
 
 # lien public (heroku)
 
+[https://edacy-school-app.herokuapp.com/portail/home](https://edacy-school-app.herokuapp.com/portail/home)
