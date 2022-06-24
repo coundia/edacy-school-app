@@ -9,7 +9,7 @@ System de gestion d'une école.
 # Structure du code
 
     .
-    ├── src                         # Dossiers des sources Service ,Entity et Extensions Twig
+    ├── src                         # Dossiers des sources  
     │   ├── app                     # Dossiers contenants les modules 
     │   │    ├── shared             # module contenant les composants partages
     │   │    ├── material           # module contenant les dépendances de material design 
